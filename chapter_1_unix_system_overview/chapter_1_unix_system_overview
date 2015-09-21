@@ -1,0 +1,104 @@
+1.2 UNIX Arhitecuture
+
+    1.2.1 In a strict sense, an operating system can be defined as the software:
+
+	(1) control the hardware resources.
+	(2) provide an environment under which programs can run.
+
+    1.2.2 system calls: the interface to the kernel
+
+1.4 Files and Dirctories
+
+    1.4.1 File system
+
+		The attributes of a file:
+
+		(1) type of file -- regular file, directory.
+		(2) size of file.
+		(3) owner of file.
+		(4) permissions for the file.
+		
+		THe stat & fstat funcs returns a structure of info containing all the attributes of a file.
+
+    1.4.2 Filename
+
+	    (1) two characters: slash (/), null, can not appear in a filename;
+
+	1.4.3 Pathname
+	    
+		(1) absolute pathname: a pathname that begins with a slash;
+		(2) relative pathname;
+
+    1.4.4 Working Directory
+
+	    (1) chdir: a process can change its working directory.
+
+    1.4.5 Home Directory
+
+	    
+1.5 Input & Output
+
+	1.5.1 File Descriptors
+        (1) normally small non-negative integers.
+	    (2) the kernel use it  to identify the files being accessed by a particular process.
+	
+	1.5.2 Standard Input, Standard Output, Standard Error.
+
+	    (1) By convention, all shells opens three descriptors whenever a new program is run:
+		(2) If nothing is done, all three are connected to the terminal.
+
+
+	1.5.4 Unbuffered I/O
+
+		(1) provided by func: open, close.
+		                      read, write.
+							  close.
+            These func work with fds.
+
+
+    1.5.5 Standard I/O
+		
+		(1) provide a buffered interface to the unbuffered I/O funcs.
+
+
+1.6 Programs and Processes
+
+	1.6.1 Program
+
+		(1) an executable file residing on disk.
+		(2) a program is read into memory and is executed by the kernel as a result of one 
+		    the six exec funcs.
+
+	1.6.2 Processes
+
+		(1) a executing instance of a program.
+		(2) processID is always non-negative.
+
+	1.6.3 Process Control
+
+	    Three primary funcs for process control:
+
+		(1) fork;
+		(2) exec;
+		(3) waitpid;
+
+		Ctrl + D is the default end-of-file charactor.
+
+
+	1.6.4 Threads and Thread IDs
+
+		All the threads within a process share:
+
+		(1) the same address space;
+		(2) fds;
+		(3) stacks;
+		(4) process-related attributes;
+
+		Thread IDs are local to a process;
+
+
+1.7 Error Handling
+
+	
+
+
