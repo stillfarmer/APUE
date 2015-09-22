@@ -1,3 +1,15 @@
+functions
+
+1. include <stdio.h>
+
+    void perror(const char *msg);
+
+2. include <string.h>
+
+    char * strerror(int errnum);
+
+
+
 1.2 UNIX Arhitecuture
 
     1.2.1 In a strict sense, an operating system can be defined as the software:
@@ -98,6 +110,48 @@
 
 
 1.7 Error Handling
+    
+	see header file in linux_include_12.04, errno-base.h, errno.h.
+
+	see error_test.c
+
+	2 problems to resolve.
+
+
+1.8 User ID & Group ID
+
+
+1.9 Signals
+
+    1.9.1 Three choices for dealing with a signal.
+
+		(1) ignore. 
+		(2) let the default action occor.
+		(3) provide a func that is called when signal occurs(called "catching the signal").
+
+
+	1.9.2 kill func
+
+	    We call this func to send a signal to another process.
+
+		Naturally, there are limitations: we have to be the owner of the other process(or the superuser) to be able to send it a signal.
+
+
+1.10 Time values
+
+	1.10.1 Unix systems have maitained two different time values:
+
+		(1) Calendar time: 
+
+		(2) Process time (CPU time), measures the cpu resources used by a process. Process time is measured in clock ticks, which 
+		    have been 50, 60 or 100 ticks per second.
+
+	1.10.2 Measures the execution time of a process.
+
+		(1) Clock time, the amount of time the process takes to run, its value depends on the number of other software.
+		    Whenever 
+
+
 
 	
 
