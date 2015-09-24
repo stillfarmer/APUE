@@ -149,7 +149,14 @@ functions
 	1.10.2 Measures the execution time of a process.
 
 		(1) Clock time, the amount of time the process takes to run, its value depends on the number of other software.
-		    Whenever 
+		    Whenever we report the clock time, the measurements are made with no other activities on the system.
+
+		(2) User CPU time: CPU time attributed to user instructions;
+
+		(3) System CPU time: CPU time attributed to the kernel when it executes on behalf of the process.
+
+
+		The sum of user CPU time and system CPU time is often called the CPU time.
 
 
 
