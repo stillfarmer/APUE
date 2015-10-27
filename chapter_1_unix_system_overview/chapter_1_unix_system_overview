@@ -146,6 +146,7 @@ functions
 		(2) Process time (CPU time), measures the cpu resources used by a process. Process time is measured in clock ticks, which 
 		    have been 50, 60 or 100 ticks per second.
 
+
 	1.10.2 Measures the execution time of a process.
 
 		(1) Clock time, the amount of time the process takes to run, its value depends on the number of other software.
