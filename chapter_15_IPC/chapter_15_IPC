@@ -1,0 +1,89 @@
+15.2 Pipes
+
+    15.2.1 Two limitations
+        (1) Half-duplex( data flows in only one direction).
+        
+        (2) Can be used only between processes that have a common ancestor.
+            Normally, a pipe is created by a process, that process calls fork, and the pipe is used between the parent and the child.\
+
+    15.2.2 pipe func
+
+        #include <unistd.h>
+
+        int pipe(int filedes[2]);
+
+        return: 0 if OK;
+                -1 on error.
+
+
+        des: filedes[0] is open for reading.
+             filedes[1] is open for writing.
+
+        Pipes are implemented using Unix domain socket.
+
+        A pipe in a single process is next to useless.
+        Normally, the process that calls pipe then call fork, creating an IPC channel from the parent to the child or vice versa.
+
+   15.2.3
+
+
+
+15.5 FIFOs
+
+    15.5.1 Create FIFOs
+
+        #include <sys/stat.h>
+
+        int mkfifo(const char *pathname, mode_t mode);
+
+        return: 0 if OK,
+                -1 on error.
+
+        args: mode is the same for the open func.
+
+        Applications 
+
+
+15.6 XSI IPC
+
+    XSI IPC -- (1) message queues
+               (2) semaphores 
+               (4) shared memory.
+
+
+    15.6.1 Identifiers and Keys
+
+        (1) Each IPC structure in the kernel is referred to by a non-negative integer id.
+
+        (2) Unlike fds, IPC ids are not small integers. Indeed, when a given IPC structure is created and then removed, the ids associated 
+            with that structure continually increases until it reaches the maximum positive value for an integer, and wraps around to 0.
+
+
+        (3) The id is an internal name for an IPC object. Cooperating processes need an external naming scheme to be able to rendezvous
+            using the same IPC object. For this purpose, an IPC object is associated with a key that acts as an external name.
+
+        (4) Whenever an IPC structure is being created( by calling msgget, semget, or shmget), a key must be specified.
+            The data type of this key is the primitive system data type key_t, which is often desigend as long integer in
+            the header <sys/types.h>
+
+            This key is converted into an id by the kernel.
+
+
+    15.6.2 Various ways for a client and a server to rendezous at the same IPC stucture.
+
+        (1) The server can create a new IPC structure by specifying a key of IPC_PRIVATE and store the returned id somewhere else (such as a file).
+            The IPC_PRIVATE key is also used in a parent-child relationship.
+
+        (2) The client and the server can agree on a key by defining the key in a common header.
+
+        (3) The client and the server can agree on a pathname and project ID ( the project ID is a character value between 0 and 255)
+            and call the func ftok to convert these two values into a key. 
+             
+            
+
+
+
+
+
+
+

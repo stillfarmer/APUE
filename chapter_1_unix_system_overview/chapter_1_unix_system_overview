@@ -19,6 +19,7 @@ functions
 
     1.2.2 system calls: the interface to the kernel
 
+
 1.4 Files and Dirctories
 
     1.4.1 File system
@@ -34,11 +35,13 @@ functions
 
     1.4.2 Filename
 
-	    (1) two characters: slash (/), null, can not appear in a filename;
+	    (1) two characters: slash (/)
+                            null, 
+                            can not appear in a filename;
 
 	1.4.3 Pathname
 	    
-		(1) absolute pathname: a pathname that begins with a slash;
+		(1) absolute pathname: begin with a slash;
 		(2) relative pathname;
 
     1.4.4 Working Directory
@@ -65,7 +68,7 @@ functions
 		(1) provided by func: open, close.
 		                      read, write.
 							  close.
-            These func work with fds.
+            These funcs work with fds.
 
 
     1.5.5 Standard I/O
@@ -160,6 +163,11 @@ functions
 		The sum of user CPU time and system CPU time is often called the CPU time.
 
 
+1.11 System calls and Library Functions
+
+    1.11.1 The system call interface has always been documented in Section 2 of the UNIX Programmer's Manual.
+
+           
 
 	
 
